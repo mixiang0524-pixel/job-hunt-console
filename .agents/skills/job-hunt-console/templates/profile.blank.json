@@ -1,0 +1,25 @@
+{
+  "_readme": [
+    "仅供旧版blocks画像兼容；新用户使用独立evidence档案。",
+    "每条evidence必须有实际来源；未知不得写成已具备。",
+    "barriers字段保留兼容，现行规则不采用门槛扣分。"
+  ],
+  "grad_year": "",
+  "degree": "",
+  "school_tier": "",
+  "major": "",
+  "experience_tier": "",
+  "_experience_tier_note": "T0=无实习无完整项目 / T1=有完整项目无实习 / T2=1段实习 / T3=>=2段实习或大厂实习。决定投递台上公司规模折叠开关的推荐默认值，见 spec §2.4。",
+  "target_role": "",
+  "dimensions": [
+    {
+      "name": "",
+      "weight": 0,
+      "evidence": "",
+      "patterns": []
+    }
+  ],
+  "barriers": {},
+  "weaknesses": [],
+  "_patterns_note": "每个维度必须写 patterns：用来在 JD 里判断这条维度有没有被要求。不写会退化成按维度名切词，准确率明显下降。拉丁词会自动加词边界。"
+}

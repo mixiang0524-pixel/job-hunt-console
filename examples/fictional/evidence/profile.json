@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "candidate": {
+    "name": "虚构候选人",
+    "email": "sample@example.invalid",
+    "location": "样例城市"
+  },
+  "sources": [
+    {
+      "id": "source-fictional",
+      "path": "source.md",
+      "sha256": "f814073cada75ef486f5a9bad10b44d35c511140b85968c9925efe107b729c9a"
+    }
+  ],
+  "experiences": [
+    {
+      "id": "exp1",
+      "title": "虚构练习项目",
+      "organization": "样例组织",
+      "period": "样例时间",
+      "role": "练习参与者",
+      "facts": [
+        {
+          "id": "fact1",
+          "text": "虚构练习：整理模拟访谈记录并形成需求清单。",
+          "status": "confirmed",
+          "sources": [
+            {
+              "source_id": "source-fictional",
+              "start_line": 1,
+              "end_line": 1,
+              "quote": "虚构练习：整理模拟访谈记录并形成需求清单。"
+            }
+          ]
+        },
+        {
+          "id": "boundary1",
+          "kind": "boundary",
+          "text": "边界说明：材料、候选人和岗位均为虚构，没有真实用户或业务效果验证。",
+          "status": "confirmed",
+          "sources": [
+            {
+              "source_id": "source-fictional",
+              "start_line": 2,
+              "end_line": 2,
+              "quote": "边界说明：材料、候选人和岗位均为虚构，没有真实用户或业务效果验证。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "criterion_id": "c1",
+      "context": "",
+      "level": 2,
+      "status": "confirmed",
+      "fact_ids": [
+        "fact1"
+      ],
+      "reason": "虚构练习仅演示已有依据，不代表真实候选人。"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "job_id": "fictional-job-1",
+    "title": "需求整理练习岗位（虚构）",
+    "company": "样例组织甲（虚构）",
+    "city": "样例城市",
+    "location": "虚构地点",
+    "salary": "样例薪资",
+    "company_scale": "20-99人",
+    "company_industry": "样例行业",
+    "job_link": "https://example.invalid/job/fictional-1",
+    "jd": "岗位职责\n整理访谈记录并形成需求清单。\n任职要求\n能够独立整理访谈记录。",
+    "first_seen": "2026-01-01"
+  },
+  {
+    "job_id": "fictional-job-2",
+    "title": "需求验证练习岗位（虚构）",
+    "company": "样例组织乙（虚构）",
+    "city": "样例城市",
+    "location": "虚构地点",
+    "salary": "样例薪资",
+    "company_scale": "规模未知",
+    "company_industry": "样例行业",
+    "job_link": "https://example.invalid/job/fictional-2",
+    "jd": "岗位职责\n设计需求验证方案并核对结论。\n任职要求\n参与需求验证工作。",
+    "first_seen": "2026-01-01"
+  }
+]

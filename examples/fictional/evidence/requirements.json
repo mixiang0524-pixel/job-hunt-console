@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "jobs": [
+    {
+      "job_id": "fictional-job-1",
+      "jd_hash": "79f379cd9a030c63c948e1443b0c66afd01c6b8ffa4d132f3427d980fe6ccd34",
+      "requirements": [
+        {
+          "id": "r1",
+          "module_id": "m1",
+          "text": "整理访谈记录",
+          "source_quote": "整理访谈记录",
+          "importance": "required",
+          "critical": false,
+          "mode": "all",
+          "criteria": [
+            {
+              "criterion_id": "c1",
+              "required_level": 3,
+              "context": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": "fictional-job-2",
+      "jd_hash": "7127b73e9d419dafa1ddae29c8e6130e8af62e25d548c474e5d53e66d04b616b",
+      "requirements": [
+        {
+          "id": "r2",
+          "module_id": "m1",
+          "text": "需求验证",
+          "source_quote": "需求验证",
+          "importance": "required",
+          "critical": true,
+          "mode": "all",
+          "criteria": [
+            {
+              "criterion_id": "c2",
+              "required_level": 2,
+              "context": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "fictional-job-1": "c87d5170ccf4ca7c82b77ec072e3a018689f51656edb88574eb7d874589bd731",
+    "fictional-job-2": "b3b7927e5c4ca798bb8f7630984d45b6be97e896289b4eb87c061ba0477c4856"
+  }
+}

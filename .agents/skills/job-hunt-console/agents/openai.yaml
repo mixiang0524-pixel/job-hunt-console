@@ -1,0 +1,4 @@
+interface:
+  display_name: "Job Hunt Console"
+  short_description: "Crawl job postings, rank them against a resume profile, and emit an operable application console."
+  default_prompt: "Use $job-hunt-console to collect JDs, filter and score them against my resume, and produce or update the HTML application tracker. Crawl one round at a time and stop for approval before any retry."

@@ -1,0 +1,23 @@
+{
+  "_readme": "完全虚构的旧版blocks画像，仅演示evidence字段写法；不能当作任何人的真实经历。新用户优先使用evidence工作流。",
+  "grad_year": "",
+  "degree": "",
+  "school_tier": "",
+  "major": "",
+  "experience_tier": "T1",
+  "target_role": "AI产品经理实习生",
+  "dimensions": [
+    {
+      "name": "需求整理",
+      "weight": 1,
+      "evidence": "虚构练习：将一组模拟访谈记录归纳为需求清单，无真实用户或业务效果验证。",
+      "patterns": [
+        "需求",
+        "访谈",
+        "原型"
+      ]
+    }
+  ],
+  "barriers": {},
+  "weaknesses": []
+}

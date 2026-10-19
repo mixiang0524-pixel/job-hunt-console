@@ -1,0 +1,94 @@
+{
+  "_readme": "公开配置模板；字段见 references/spec.md §9。按本人意向填写后保存到独立本地工作目录。",
+  "site": "zhipin",
+  "cities": [],
+  "target_role": "",
+  "role_aliases": [],
+  "hard_exclude": {
+    "_note": "管道排除，撤销要重跑整条链路。只放不会有例外的条件。公司规模不在这里，见 view。",
+    "keywords": [],
+    "companies": [],
+    "industries": []
+  },
+  "view": {
+    "_note": "界面折叠开关的初始值。折叠是隐藏不是删除，数据全量保留，随时可切回来。由履历档位推荐，使用者确认。",
+    "fold_scales": [],
+    "fold_scale_options": [
+      "0-20人",
+      "20-99人",
+      "规模未知"
+    ]
+  },
+  "title_gate": {
+    "_note": "**两个列表都必须在初始化访谈时和使用者确认，不要沿用别人的方向。** exclude_titles 是**其他职业**的明确名词；protect_titles 是**目标岗位自己**的职业名词。只判「明显不属于」，不判「是否属于」。两者同时命中 = 排除词在这里是领域不是职业（「客服产品实习生」的职业是产品），放行交给块级判定——那一步有整篇 JD，证据比标题多得多。exclude_titles 留空则闸门不生效，全部进入块级判定，只是更花判读额度。宁可放过，不可误杀：放过的代价是多读一条 JD，误杀的代价是丢一个 offer。",
+    "enabled": true,
+    "exclude_titles": [],
+    "protect_titles": []
+  },
+  "keywords": {
+    "_note": "关键词用于展示与公司相关性分析，不作为计数式岗位闸门。先用岗位样本形成候选词，再由使用者确认。",
+    "seed": [],
+    "core": [],
+    "context_guards": {}
+  },
+  "judge": {
+    "_note": "块级判定用哪个模型。这是每个人自己的选择——按额度和对准确率的要求定，和 target_role 一样属于「换个人就不一样」的配置，不写死在代码里。两趟判读（annotate / match）共用这一个模型设置。",
+    "model": "",
+    "_model_options": [],
+    "_model_advice": "使用宿主实际支持且由使用者明确选择的模型；本仓库不提供模型API调用。",
+    "batch_size": 20,
+    "blocks_per_batch": 150,
+    "_batch_note": "批次按**块数**切，不按岗位数：JD 长度差得太多（最短 3 块、最长 40+ 块），按岗位数切会出现一批 60 块另一批 400 块，后者的判读质量会在后半段掉下去。batch_size 是岗位数的上限，两个条件谁先到按谁切。",
+    "seed_batches": 3,
+    "_seed_note": "冷启动种子轮批数。要点表为空时只放这么多批，判完再放其余的。已有要点表是在生成任务包那一刻烤进 manifest 的——表是空的就并行全放，每个判读方各造各的词汇表，「优先复用」等于没有，人工查验时要合并几百个同义项。",
+    "task_models": {}
+  },
+  "scoring": {
+    "_note": "新用户使用 spec §21 经历驱动匹配；旧配置未设置 match_engine 时兼容 blocks 口径。公司分与匹配分分开。",
+    "match_engine": "evidence",
+    "profile_source": "./profile.json",
+    "blend": {
+      "short": 0.5,
+      "medium": 0.3,
+      "long": 0.15
+    },
+    "jd_short_threshold": 300,
+    "jd_long_threshold": 600,
+    "exclude_salary": true,
+    "anti_barrier_bonus": 3,
+    "_anti_barrier_note": "JD 明写「不看专业/不看院校/不要求经验/面向本届」时，混合分 +N。**不进匹配分**——匹配分回答「对不对得上」，反门槛回答「够不够格」，混在一起分数就没法解释。幅度先设小，观察后再调；设 0 即关闭。"
+  },
+  "evidence": {
+    "catalog_path": "./evidence/capabilities.json",
+    "profile_path": "./evidence/profile.json",
+    "requirements_path": "./evidence/requirements.json",
+    "workspace_dir": "./evidence",
+    "source_files": [],
+    "_note": "只登记明确选择的 UTF-8 访谈/材料文件。初始化后按 market-task / interview-task 补齐目录与经历，不沿用示例个人身份。"
+  },
+  "dedup": {
+    "_note": "auto_merge 只合并公司+城市+标题归一化后完全一致的。相似度达到 fuzzy_flag_threshold 的只打标记，不合并。",
+    "auto_merge": true,
+    "fuzzy_flag_threshold": 0.8
+  },
+  "crawl": {
+    "_note": "列表每轮全量重抓（几分钟），详情只抓新 job_id（跳过几小时的那部分）。无定时任务，人工触发。",
+    "query": "",
+    "filters": {},
+    "pages_per_city": 10,
+    "max_retry_rounds": 1,
+    "incremental": true,
+    "stale_hint_miss_streak": 2,
+    "log_joblist_urls": true,
+    "collect_publish_time": true,
+    "scraper": ""
+  },
+  "resume_editor": {
+    "show_intent": false,
+    "text_only_section_titles": [],
+    "section_titles": []
+  },
+  "output_dir": "./out",
+  "taxonomy_path": "",
+  "_taxonomy_note": "要点表与二级方向表的位置。留空则用 config.json 同目录的 taxonomy.json。多方向时它是**共享**的——要点是 JD 的固有属性，跟你在找什么岗位无关。"
+}
